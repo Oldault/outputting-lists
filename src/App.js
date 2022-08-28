@@ -7,6 +7,17 @@ import Avatar, { genConfig } from 'react-nice-avatar'
 function App() {
   return (
     <div className="App">
+      <div className="header">
+        <div className="header-info">
+          <h1>Info on users</h1>
+          <ul>
+            <li>Names</li>
+            <li>Jobs</li>
+            <li>Languages</li>
+          </ul>
+        </div>
+        <div className="blackline"></div>
+      </div>
       {JSONDATA.map((info, id) => (
         <div className="user-preview" key={id}>
           <div className="profile-picutre">
