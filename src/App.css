@@ -1,6 +1,28 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2 {
+  font-family: 'Montserrat', sans-serif;
+}
+
+h1 {
+  font-size: 32px;
+  padding: 12px 20px;
+}
+
+p {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+}
+
+p span {
+  font-weight: 200;
+}
 .App {
-  text-align: center;
-  width: 1200px;
+  width: 800px;
   display: flex;
   flex-direction: column;
 }
@@ -13,9 +35,42 @@
 
 .App .info {
   display: flex;
+  padding: 20px;
+  align-items: flex-start;
 }
 
 .App .profile-picutre img {
   border: 1px black solid;
   margin: 10px;
+  border-radius: 50%;
+  background-color: white;
+}
+
+.App .profile-picutre {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-right: 1px black solid;
+  background-color: #92A9BD;
+}
+
+
+.App .right-side {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.App .name {
+  background-color: #D3DEDC;
+  margin: 0;
+  width: 100%;
+}
+
+.App .main-info {
+  width: 50%;
+}
+
+.App .second-based-info {
+  width: 50%;
 }
