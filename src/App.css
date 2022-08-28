@@ -47,17 +47,19 @@ p span {
 .App .header-info li {
   list-style-type: none;
   margin: 0px 4px;
+  transition: all .2s ease-out;
 }
 
-.App .header-info ul li:after {
-  content: " /";
+.App .header-info ul li + li:before {
+  content: "/ ";
 }
-.App .header-info ul li:last-child:after {
-  content: "";
+
+.App .header-info ul li:hover {
+  color: #EF8354;
 }
 
 .App .blackline {
-  border-bottom: 1px black solid;
+  border-bottom: 1px #BFC0C0 solid;
   margin-bottom: 32px;
 }
 
@@ -70,18 +72,25 @@ p span {
 .App .user-preview {
   width: 800px;
   display: flex;
-  border: 1px black solid;
+  border: 1px #BFC0C0 solid;
   margin: 10px;
+  transition: all .2s ease-out;
+}
+
+.App .user-preview:hover {
+  width: 1000px;
 }
 
 .App .info {
   display: flex;
   padding: 20px;
   align-items: flex-start;
+  justify-content: space-between;
+
 }
 
 .App .profile-picutre img {
-  border: 1px black solid;
+  border: 1px #BFC0C0 solid;
   margin: 10px;
   border-radius: 50%;
   background-color: white;
@@ -100,7 +109,7 @@ p span {
 }
 
 .App .main-info {
-  width: 50%;
+  max-width: 50%;
 }
 
 .App .second-based-info {
@@ -111,13 +120,13 @@ p span {
   width: 100px;
   height: 100px;
   margin: 20px;
-  border: 2px darkslategray solid;
+  border: 3px #2D3142 solid;
 }
 
 .App .avatar {
   display: flex;
   align-items: center;
   justify-content: center;
-  border-right: 1px black solid;
-  background-color: #92A9BD;
+  border-right: 1px #BFC0C0 solid;
+  background-color: #4F5D75;
 }
