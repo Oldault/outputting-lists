@@ -22,12 +22,13 @@ p span {
   font-weight: 200;
 }
 .App {
-  width: 800px;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .App .user-preview {
+  width: 800px;
   display: flex;
   border: 1px black solid;
   margin: 10px;
@@ -45,15 +46,6 @@ p span {
   border-radius: 50%;
   background-color: white;
 }
-
-.App .profile-picutre {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-right: 1px black solid;
-  background-color: #92A9BD;
-}
-
 
 .App .right-side {
   padding: 0;
@@ -73,4 +65,19 @@ p span {
 
 .App .second-based-info {
   width: 50%;
+}
+
+.App .bighead {
+  width: 100px;
+  height: 100px;
+  margin: 20px;
+  border: 2px darkslategray solid;
+}
+
+.App .avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px black solid;
+  background-color: #92A9BD;
 }

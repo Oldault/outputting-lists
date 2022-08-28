@@ -2,17 +2,19 @@ import "./App.css";
 /* import { useState } from "react"; */
 import JSONDATA from "./Users.json";
 import { BigHead } from '@bigheads/core';
+import Avatar, { genConfig } from 'react-nice-avatar'
 
 function App() {
   return (
     <div className="App">
-      {/* <BigHead /> */}
       {JSONDATA.map((info, id) => (
         <div className="user-preview" key={id}>
           <div className="profile-picutre">
-          <img src={info.avatar} alt="avatar" />
-            <BigHead />
-          </div>     
+          </div> 
+          {/* <BigHead className="bighead" />   */} 
+          <div className="avatar">
+            <Avatar className="bighead"/>
+          </div>
           <div class="right-side">
             <div className="name">
               <h1>{info.fullName}</h1>
