@@ -1,12 +1,18 @@
 import "./App.css";
-/* import { useState } from "react"; */
+import React, { useState } from "react";
 import JSONDATA from "./Users.json";
-import CONTACTDATA from "./USERDATA.json"
-import Avatar/* , { genConfig } */ from "react-nice-avatar";
+import CONTACTDATA from "./USERDATA.json";
+import Avatar /* , { genConfig } */ from "react-nice-avatar";
 import Accordion from "./components/Accordion";
 
-
 function App() {
+  const [elementNum, setElementNum] = useState(5);
+  const loadMore = () => {
+    setElementNum(elementNum + 5);
+  }
+
+  const JSONslice = JSONDATA.slice(0, elementNum)
+
   return (
     <div className="App">
       <div className="header">
@@ -20,13 +26,13 @@ function App() {
         </div>
         <div className="blackline"></div>
         <div className="accordion">
-            <Accordion 
-                title="contact"
-                content="Vivamus interdum ex ut lectus congue volutpat. Sed consequat urna eu enim finibus, vel suscipit magna vehicula. Nunc maximus, risus at molestie sollicitudin, enim justo fringilla risus, eu semper sem nibh ut diam. Etiam quis lobortis leo, eu lacinia ligula. Vivamus consequat sodales purus eu imperdiet. Phasellus ullamcorper ipsum arcu, quis commodo magna condimentum accumsan. Cras sodales malesuada massa id venenatis. Duis ac nisl sit amet diam pellentesque aliquet sed vel urna. Etiam porttitor tempor neque et vestibulum."
-              />
-            </div>
+          <Accordion
+            title="contact"
+            content="Vivamus interdum ex ut lectus congue volutpat. Sed consequat urna eu enim finibus, vel suscipit magna vehicula. Nunc maximus, risus at molestie sollicitudin, enim justo fringilla risus, eu semper sem nibh ut diam. Etiam quis lobortis leo, eu lacinia ligula. Vivamus consequat sodales purus eu imperdiet. Phasellus ullamcorper ipsum arcu, quis commodo magna condimentum accumsan. Cras sodales malesuada massa id venenatis. Duis ac nisl sit amet diam pellentesque aliquet sed vel urna. Etiam porttitor tempor neque et vestibulum."
+          />
+        </div>
       </div>
-      {JSONDATA.map((info, id) => (
+      {JSONslice.map((info, id) => (
         <div className="user-preview" key={id}>
           <div className="avatar">
             <Avatar className="bighead" />
@@ -36,10 +42,7 @@ function App() {
               <h1>{info.fullName}</h1>
             </div>
             <div className="accordion">
-            <Accordion 
-                title="contact"
-                content="Lorem ipsum"
-              />
+              <Accordion title="contact" content="Lorem ipsum" />
             </div>
             <div className="info">
               <div className="main-info">
@@ -70,6 +73,11 @@ function App() {
           </div>
         </div>
       ))}
+
+      <button className="button" onClick={() => loadMore()}>
+        Load more
+      </button>
+
     </div>
   );
 }
