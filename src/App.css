@@ -81,13 +81,13 @@ p span {
   width: 1000px;
 } */
 
-.App .info {
+/* .App .info {
   display: flex;
   padding: 20px;
   align-items: flex-start;
   justify-content: space-between;
 
-}
+} */
 
 .App .profile-picutre img {
   border: 1px #BFC0C0 solid;

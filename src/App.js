@@ -6,12 +6,12 @@ import Avatar /* , { genConfig } */ from "react-nice-avatar";
 import Accordion from "./components/Accordion";
 
 function App() {
-  const [elementNum, setElementNum] = useState(5);
+  const [elementNum, setElementNum] = useState(6);
   const loadMore = () => {
     setElementNum(elementNum + 5);
-  }
+  };
 
-  const JSONslice = JSONDATA.slice(0, elementNum)
+  const JSONslice = JSONDATA.slice(0, elementNum);
 
   return (
     <div className="App">
@@ -25,12 +25,6 @@ function App() {
           </ul>
         </div>
         <div className="blackline"></div>
-        <div className="accordion">
-          <Accordion
-            title="contact"
-            content="Vivamus interdum ex ut lectus congue volutpat. Sed consequat urna eu enim finibus, vel suscipit magna vehicula. Nunc maximus, risus at molestie sollicitudin, enim justo fringilla risus, eu semper sem nibh ut diam. Etiam quis lobortis leo, eu lacinia ligula. Vivamus consequat sodales purus eu imperdiet. Phasellus ullamcorper ipsum arcu, quis commodo magna condimentum accumsan. Cras sodales malesuada massa id venenatis. Duis ac nisl sit amet diam pellentesque aliquet sed vel urna. Etiam porttitor tempor neque et vestibulum."
-          />
-        </div>
       </div>
       {JSONslice.map((info, id) => (
         <div className="user-preview" key={id}>
@@ -39,36 +33,26 @@ function App() {
           </div>
           <div class="right-side">
             <div className="name">
-              <h1>{info.fullName}</h1>
+              <h1>{info.fullName} #{id}</h1>
             </div>
-            <div className="accordion">
-              <Accordion title="contact" content="Lorem ipsum" />
+            <div className="accordion accordion-pers-info">
+              <Accordion
+                title="Personnal Info"
+                content={`<p>Gender: <span>${info.gender}</span></p>
+                <p>First Language : <span>${info.mainLanguage}</span></p>
+                <p>password <span>${info.password}</span></p>`}
+              />
             </div>
-            <div className="info">
-              <div className="main-info">
-                <h2>Personnal Info</h2>
-                <p className="gender ">
-                  Gender: <span>{info.gender}</span>
-                </p>
-                <p className="language">
-                  First Language : <span>{info.mainLanguage}</span>
-                </p>
-                <p className="password">
-                  password <span>{info.password}</span>
-                </p>
-              </div>
-              <div className="second-based-info">
-                <h2>Professional Info</h2>
-                <p className="company">
-                  Company: <span>{info.worksAt}</span>
-                </p>
-                <p className="work-field">
-                  Works in: <span>{info.departement}</span>
-                </p>
-                <p className="education">
-                  Higher education at: <span>{info.higherEducation}</span>
-                </p>
-              </div>
+            <div className="accordion accordion-prof-info">
+              <Accordion
+                  title="Professional Info"
+                  content={`<p>Works in: <span>${info.departement}</span></p>
+                  <p>Company: <span>${info.worksAt}</span></p>
+                  <p>Higher education at: <span>${info.higherEducation}</span></p>`}
+                />
+            </div>
+            <div className="accordion accordion-contact">
+              <Accordion title="Contact" content="Coming Soon ;)" />
             </div>
           </div>
         </div>
@@ -77,7 +61,6 @@ function App() {
       <button className="button" onClick={() => loadMore()}>
         Load more
       </button>
-
     </div>
   );
 }

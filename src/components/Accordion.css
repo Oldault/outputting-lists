@@ -12,6 +12,7 @@
     border: none;
     outline: none;
     transition: background-color .6s ease;
+    width: 652.7px;
 }
 
 .accordion button {
