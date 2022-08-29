@@ -1,8 +1,10 @@
 import "./App.css";
 /* import { useState } from "react"; */
 import JSONDATA from "./Users.json";
-import { BigHead } from '@bigheads/core';
-import Avatar, { genConfig } from 'react-nice-avatar'
+import CONTACTDATA from "./USERDATA.json"
+import Avatar/* , { genConfig } */ from "react-nice-avatar";
+import Accordion from "./components/Accordion";
+
 
 function App() {
   return (
@@ -17,24 +19,37 @@ function App() {
           </ul>
         </div>
         <div className="blackline"></div>
+        <div className="accordion">
+            <Accordion 
+                title="contact"
+                content="Vivamus interdum ex ut lectus congue volutpat. Sed consequat urna eu enim finibus, vel suscipit magna vehicula. Nunc maximus, risus at molestie sollicitudin, enim justo fringilla risus, eu semper sem nibh ut diam. Etiam quis lobortis leo, eu lacinia ligula. Vivamus consequat sodales purus eu imperdiet. Phasellus ullamcorper ipsum arcu, quis commodo magna condimentum accumsan. Cras sodales malesuada massa id venenatis. Duis ac nisl sit amet diam pellentesque aliquet sed vel urna. Etiam porttitor tempor neque et vestibulum."
+              />
+            </div>
       </div>
       {JSONDATA.map((info, id) => (
         <div className="user-preview" key={id}>
-          <div className="profile-picutre">
-          </div> 
-          {/* <BigHead className="bighead" />   */} 
           <div className="avatar">
-            <Avatar className="bighead"/>
+            <Avatar className="bighead" />
           </div>
           <div class="right-side">
             <div className="name">
               <h1>{info.fullName}</h1>
             </div>
+            <div className="accordion">
+            <Accordion 
+                title="contact"
+                content="Lorem ipsum"
+              />
+            </div>
             <div className="info">
               <div className="main-info">
                 <h2>Personnal Info</h2>
-                <p className="gender ">Gender: <span>{info.gender}</span></p>
-                <p className="language">First Language : <span>{info.mainLanguage}</span></p>
+                <p className="gender ">
+                  Gender: <span>{info.gender}</span>
+                </p>
+                <p className="language">
+                  First Language : <span>{info.mainLanguage}</span>
+                </p>
                 <p className="password">
                   password <span>{info.password}</span>
                 </p>

@@ -77,9 +77,9 @@ p span {
   transition: all .2s ease-out;
 }
 
-.App .user-preview:hover {
+/* .App .user-preview:hover {
   width: 1000px;
-}
+} */
 
 .App .info {
   display: flex;
