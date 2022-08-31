@@ -3,10 +3,11 @@ import React, { useState } from "react";
 import JSONDATA from "./Users.json";
 import CONTACTDATA from "./USERDATA.json";
 import Avatar /* , { genConfig } */ from "react-nice-avatar";
-import Accordion from "./components/Accordion";
+import Accordion from "./components/Accordion/Accordion";
+import PersInfo from "./components/Personnal-info/Personnal-info";
 
 function App() {
-  const [elementNum, setElementNum] = useState(6);
+  const [elementNum, setElementNum] = useState(5);
   const loadMore = () => {
     setElementNum(elementNum + 5);
   };
@@ -33,7 +34,9 @@ function App() {
           </div>
           <div class="right-side">
             <div className="name">
-              <h1>{info.fullName} #{id}</h1>
+              <h1>
+                {info.fullName} #{id + 1}
+              </h1>
             </div>
             <div className="accordion accordion-pers-info">
               <Accordion
@@ -45,11 +48,11 @@ function App() {
             </div>
             <div className="accordion accordion-prof-info">
               <Accordion
-                  title="Professional Info"
-                  content={`<p>Works in: <span>${info.departement}</span></p>
+                title="Professional Info"
+                content={`<p>Works in: <span>${info.departement}</span></p>
                   <p>Company: <span>${info.worksAt}</span></p>
                   <p>Higher education at: <span>${info.higherEducation}</span></p>`}
-                />
+              />
             </div>
             <div className="accordion accordion-contact">
               <Accordion title="Contact" content="Coming Soon ;)" />
