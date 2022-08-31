@@ -1,10 +1,8 @@
 import "./App.css";
 import React, { useState } from "react";
-import JSONDATA from "./Users.json";
 import CONTACTDATA from "./USERDATA.json";
 import Avatar /* , { genConfig } */ from "react-nice-avatar";
 import Accordion from "./components/Accordion/Accordion";
-import PersInfo from "./components/Personnal-info/Personnal-info";
 
 function App() {
   const [elementNum, setElementNum] = useState(5);
@@ -12,7 +10,7 @@ function App() {
     setElementNum(elementNum + 5);
   };
 
-  const JSONslice = JSONDATA.slice(0, elementNum);
+  const JSONslice = CONTACTDATA.slice(0, elementNum);
 
   return (
     <div className="App">
@@ -21,7 +19,9 @@ function App() {
           <h1>Info on users</h1>
           <ul>
             <li>Names</li>
+            <p>/</p>
             <li>Jobs</li>
+            <p>/</p>
             <li>Languages</li>
           </ul>
         </div>
@@ -35,27 +35,37 @@ function App() {
           <div class="right-side">
             <div className="name">
               <h1>
-                {info.fullName} #{id + 1}
+                {info.first_name} {info.last_name}
               </h1>
+              <p>#{id + 1}</p>
             </div>
             <div className="accordion accordion-pers-info">
               <Accordion
                 title="Personnal Info"
-                content={`<p>Gender: <span>${info.gender}</span></p>
-                <p>First Language : <span>${info.mainLanguage}</span></p>
-                <p>password <span>${info.password}</span></p>`}
+                content={`
+                <p>Username: <span>${info.username}</span></p>
+                <p>Gender: <span>${info.gender}</span></p>
+                <p>First Language : <span>${info.language}</span></p>
+                <p>Favorite color: <span>${info.favColor}</span></p>`}
               />
             </div>
             <div className="accordion accordion-prof-info">
               <Accordion
                 title="Professional Info"
-                content={`<p>Works in: <span>${info.departement}</span></p>
-                  <p>Company: <span>${info.worksAt}</span></p>
-                  <p>Higher education at: <span>${info.higherEducation}</span></p>`}
+                content={`
+                  <p>Works in: <span>${info.department}</span></p>
+                  <p>Company: <span>${info.company}</span></p>
+                  <p>Higher education at: <span>${info.university}</span></p>`}
               />
             </div>
             <div className="accordion accordion-contact">
-              <Accordion title="Contact" content="Coming Soon ;)" />
+              <Accordion 
+                title="Contact" 
+                content={`
+                  <p>Email: <span>${info.email}</span></p>
+                  <p>Phone number: <span>${info.phone}</span></p>
+                  <p>Location: <span>${info.location}</span></p>`}
+              />
             </div>
           </div>
         </div>
